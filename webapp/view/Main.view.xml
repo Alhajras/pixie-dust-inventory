@@ -21,7 +21,58 @@
 					<Button
 						id="helloButton"
 						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello" />
+						press="sayHello"/>
+
+
+					<!-- Button to open the dialog -->
+					<Button
+						text="Add User"
+						press=".onOpenDialog"
+					/>
+
+					<!-- Input Field with Data Binding -->
+					<Input
+						value="{/recipient/name}"
+						description="Hello {/recipient/name}"
+						valueLiveUpdate="true"
+						width="60%"
+					/>
+
+					<!-- Table -->
+					<Table id="myTable" items="{/users}">
+						<columns>
+							<Column>
+								<Text text="Name"/>
+							</Column>
+							<Column>
+								<Text text="Age"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{name}"/>
+									<Text text="{age}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+
+					<!-- Dialog Definition -->
+					<Dialog id="userDialog" title="Add User" afterClose="onDialogClose">
+						<VBox>
+							<Label text="Name"/>
+							<Input id="nameInput"/>
+							<Label text="Age"/>
+							<Input id="ageInput"/>
+						</VBox>
+						<beginButton>
+							<Button text="Add" press="onAddUser"/>
+						</beginButton>
+						<endButton>
+							<Button text="Cancel" press="onCancel"/>
+						</endButton>
+					</Dialog>
 				</additionalContent>
 			</IllustratedMessage>
 		</content>
