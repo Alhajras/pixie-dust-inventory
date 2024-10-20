@@ -26,7 +26,7 @@
 
 					<!-- Button to open the dialog -->
 					<Button
-						text="Add User"
+						text="New Order"
 						press=".onOpenDialog"
 					/>
 
@@ -45,6 +45,9 @@
 							<Column>
 								<Text text="Price"/>
 							</Column>
+							<Column>
+								<Text text="Notes"/>
+							</Column>
 						</columns>
 						<items>
 							<ColumnListItem>
@@ -53,13 +56,14 @@
 									<Text text="{link}"/>
 									<Text text="{quantity}"/>
 									<Text text="{price}"/>
+									<Text text="{notes}"/>
 								</cells>
 							</ColumnListItem>
 						</items>
 					</Table>
 
 					<!-- Dialog Definition -->
-					<Dialog id="userDialog" title="Add User" afterClose="onDialogClose">
+					<Dialog id="userDialog" title="New Order" afterClose="onDialogClose">
 						<VBox>
 							<Label text="Name"/>
 							<Input id="nameInput"/>
@@ -69,6 +73,8 @@
 							<Input id="quantity"/>
 							<Label text="Price"/>
 							<Input id="price"/>
+							<Label text="Notes"/>
+							<Input id="notes"/>
 						</VBox>
 						<beginButton>
 							<Button text="Add" press="onAddUser"/>
