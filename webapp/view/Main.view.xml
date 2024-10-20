@@ -30,14 +30,6 @@
 						press=".onOpenDialog"
 					/>
 
-					<!-- Input Field with Data Binding -->
-					<Input
-						value="{/recipient/name}"
-						description="Hello {/recipient/name}"
-						valueLiveUpdate="true"
-						width="60%"
-					/>
-
 					<!-- Table -->
 					<Table id="myTable" items="{/users}">
 						<columns>
@@ -45,14 +37,22 @@
 								<Text text="Name"/>
 							</Column>
 							<Column>
-								<Text text="Age"/>
+								<Text text="Link"/>
+							</Column>
+							<Column>
+								<Text text="Quantity"/>
+							</Column>
+							<Column>
+								<Text text="Price"/>
 							</Column>
 						</columns>
 						<items>
 							<ColumnListItem>
 								<cells>
 									<Text text="{name}"/>
-									<Text text="{age}"/>
+									<Text text="{link}"/>
+									<Text text="{quantity}"/>
+									<Text text="{price}"/>
 								</cells>
 							</ColumnListItem>
 						</items>
@@ -63,8 +63,12 @@
 						<VBox>
 							<Label text="Name"/>
 							<Input id="nameInput"/>
-							<Label text="Age"/>
-							<Input id="ageInput"/>
+							<Label text="Link"/>
+							<Input id="link"/>
+							<Label text="Quantity"/>
+							<Input id="quantity"/>
+							<Label text="Price"/>
+							<Input id="price"/>
 						</VBox>
 						<beginButton>
 							<Button text="Add" press="onAddUser"/>

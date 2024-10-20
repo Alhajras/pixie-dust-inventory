@@ -18,8 +18,8 @@ export default class Main extends BaseController {
 	public onInit(): void {
 		const oModel = new JSONModel({
 			users: [
-				{name: "John Doe", age: 30},
-				{name: "Jane Smith", age: 25}
+				{name: "John Doe", link: 'https://www.youtube.com/watch?v=5YAaeOonFRI&ab_channel=Money%26Macro', quantity: 6, price: '5.0$'},
+				{name: "Jane Smith", link: 'https://www.youtube.com/watch?v=5YAaeOonFRI&ab_channel=Money%26Macro', quantity: 6, price: '5.0$'}
 			]
 		});
 		this.getView().setModel(oModel);
