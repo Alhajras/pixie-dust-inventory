@@ -53,14 +53,19 @@ export default class Main extends BaseController {
 
         // Get references to the input fields
         const nameInput = this.byId("nameInput") as Input;
-        const quantity = this.byId("quantity") as Input;
+        const quantityInput = this.byId("quantity") as Input;
+        const linkInput = this.byId("link") as Input;
+        const priceInput = this.byId("price") as Input;
 
         const name = nameInput.getValue();
-        const age = quantity.getValue();
+        const age = quantityInput.getValue();
+        const link = linkInput.getValue();
+        const price = priceInput.getValue();
 
         // Reset validation states
         nameInput.setValueState(ValueState.None);
-        quantity.setValueState(ValueState.None);
+        quantityInput.setValueState(ValueState.None);
+        linkInput.setValueState(ValueState.None);
 
         // Perform validation
         let isValid = true;
@@ -71,9 +76,21 @@ export default class Main extends BaseController {
             isValid = false;
         }
 
+				if (!link) {
+            linkInput.setValueState(ValueState.Error);
+            linkInput.setValueStateText("Link cannot be empty");
+            isValid = false;
+        }
+
         if (!age || isNaN(Number(age)) || Number(age) <= 0) {
-            quantity.setValueState(ValueState.Error);
-            quantity.setValueStateText("Please enter a valid age greater than 0");
+            quantityInput.setValueState(ValueState.Error);
+            quantityInput.setValueStateText("Please enter a valid age greater than 0");
+            isValid = false;
+        }
+
+				if (!price || isNaN(Number(price)) || Number(price) <= 0) {
+            priceInput.setValueState(ValueState.Error);
+            priceInput.setValueStateText("Please enter a valid price greater than 0");
             isValid = false;
         }
 
